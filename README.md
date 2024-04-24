@@ -1,4 +1,4 @@
-# LLM-Ontology 🍃
+# OLIVE (Ontology Learning with Integrated Vector Embedding) 🍃
 
 ## Project Overview
 
