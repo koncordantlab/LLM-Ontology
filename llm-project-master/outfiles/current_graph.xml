@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+>
+  <owl:ObjectProperty rdf:about="https://example.org/ddc150af97354392a011aa192a83f076">
+    <rdfs:label>is_sorted_into</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/gryffindorhouse"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/bbcd0f1e239a6f08d7b22a350087880f">
+    <rdfs:label>is_friend_of</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/hermionegranger"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/1d47b48608b030440f65b77a663506d8">
+    <rdfs:label>is_enemy_of</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/dracomalfoy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/01e0dd76d5a3644db1c79e15c9a5dc1e">
+    <rdfs:label>is_confronted_by</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/quirinusquirrell"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/2f585b5eb35bea9e28f696b5d25a532b">
+    <rdfs:label>murdered</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-voldemort"/>
+    <rdfs:range rdf:resource="https://example.org/lillypotterandjamespotter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/16ee7fea7e3a72da1748910d684592b4">
+    <rdfs:label>allied_with</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-voldemort"/>
+    <rdfs:range rdf:resource="https://example.org/quirinusquirrell"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/83dfbc95b15246da32fa124625108c31">
+    <rdfs:label>attempted_to_kill</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-voldemort"/>
+    <rdfs:range rdf:resource="https://example.org/harrypotter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/b1e26d9183d5f4f2fe31f1c0bc93244c">
+    <rdfs:label>is_headmaster_of</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-dumbledore"/>
+    <rdfs:range rdf:resource="https://example.org/hogwartsschoolofwitchcraftandwizardry"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/8eaa9127398d510e6f600034eab5c18d">
+    <rdfs:label>is_confronted_by</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/voldemort"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/536826a4f3b3fad822e766e72f284514">
+    <rdfs:label>invites</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-hagrid"/>
+    <rdfs:range rdf:resource="https://example.org/harrypottertoattendhogwartsschoolofwitchcraftandwizardry"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/36c0a7d5a54895e23f7e10168793266c">
+    <rdfs:label>displays_dislike_for</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-severussnape"/>
+    <rdfs:range rdf:resource="https://example.org/harrypotter"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/14e8427db8da908e423f032112d6aafa">
+    <rdfs:label>is_student_at</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/hogwartsschoolofwitchcraftandwizardry"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/ebc770a99acd4b9dac423991f3156b23">
+    <rdfs:label>is_friend_of</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/ronweasley"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/dd72d40a3302aa08a90287663c39e528">
+    <rdfs:label>is_famous_among</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-harrypotter"/>
+    <rdfs:range rdf:resource="https://example.org/communityofwizardsandwitches"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://example.org/2f8edd6fbaf3141bbc00dedc330ba00f">
+    <rdfs:label>yearns_to_possess</rdfs:label>
+    <rdfs:domain rdf:resource="https://example.org/-voldemort"/>
+    <rdfs:range rdf:resource="https://example.org/philosopher'sstone"/>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://example.org/philosopher'sstone">
+    <rdfs:label>Philosopher'sStone</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/quirinusquirrell">
+    <rdfs:label>QuirinusQuirrell</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/hermionegranger">
+    <rdfs:label>HermioneGranger</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/ronweasley">
+    <rdfs:label>RonWeasley</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/hogwartsschoolofwitchcraftandwizardry">
+    <rdfs:label>HogwartsSchoolofWitchcraftandWizardry</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/-harrypotter">
+    <rdfs:label>-HarryPotter</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/-voldemort">
+    <rdfs:label>-Voldemort</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/gryffindorhouse">
+    <rdfs:label>GryffindorHouse</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/dracomalfoy">
+    <rdfs:label>DracoMalfoy</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/-severussnape">
+    <rdfs:label>-SeverusSnape</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/-hagrid">
+    <rdfs:label>-Hagrid</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/communityofwizardsandwitches">
+    <rdfs:label>communityofwizardsandwitches</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/-dumbledore">
+    <rdfs:label>-Dumbledore</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/harrypottertoattendhogwartsschoolofwitchcraftandwizardry">
+    <rdfs:label>HarryPottertoattendHogwartsSchoolofWitchcraftandWizardry</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/voldemort">
+    <rdfs:label>Voldemort</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/harrypotter">
+    <rdfs:label>HarryPotter</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://example.org/lillypotterandjamespotter">
+    <rdfs:label>LillyPotterandJamesPotter</rdfs:label>
+  </owl:Class>
+</rdf:RDF>

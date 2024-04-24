@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knowledge Graph Generator</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link{% if active_tab == 'load_graph' %} active{% endif %}" id="load_graph-tab" data-toggle="tab" href="#load_graph" role="tab" aria-controls="load_graph" aria-selected="false">Load Graph</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'create' %} active{% endif %}" id="create-tab" data-toggle="tab" href="#create" role="tab" aria-controls="create" aria-selected="true">Create/Extend Graphs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'insights' %} active{% endif %}" id="insights-tab" data-toggle="tab" href="#insights" role="tab" aria-controls="insights" aria-selected="true">Get Insights</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'merge_graphs' %} active{% endif %}" id="merge_graphs-tab" data-toggle="tab" href="#merge_graphs" role="tab" aria-controls="merge_graphs" aria-selected="true">Merge Graphs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'flavonoid' %} active{% endif %}" id="flavonoid-tab" data-toggle="tab" href="#flavonoid" role="tab" aria-controls="flavonoid" aria-selected="true">Flavonoid</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'visualize' %} active{% endif %}" id="visualize-tab" data-toggle="tab" href="#visualize" role="tab" aria-controls="visualize" aria-selected="true">Visualize</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'scrape_abstracts' %} active{% endif %}" id="scrape_abstracts-tab" data-toggle="tab" href="#scrape_abstracts" role="tab" aria-controls="scrape_abstracts" aria-selected="true">Scrape Abstracts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'eval_results' %} active{% endif %}" id="eval_results-tab" data-toggle="tab" href="#eval_results" role="tab" aria-controls="eval_results" aria-selected="true">Eval Results</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if active_tab == 'error' %} active{% endif %}" id="error-tab" data-toggle="tab" href="#error" role="tab" aria-controls="error" aria-selected="true">Error</a>
+        </li>
+        <!-- Add other tabs as needed -->
+        <!-- ... -->
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade{% if active_tab == 'load_graph' %} show active{% endif %}" id="load_graph" role="tabpanel" aria-labelledby="load_graph-tab">
+            <div class="col-sm-10">
+                <h3>Graph List</h3>
+            </div>
+            <form method="post" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label for="graph-select">Select a Graph:</label><select class="form-control" id="graph-select" name="selected_graph">
+                            {% for graph_name in graph_names %}
+                                <option value="{{ graph_name }}">{{ graph_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" name="action" value="load_graph">Load Graph</button>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'create' %} show active{% endif %}" id="create" role="tabpanel" aria-labelledby="create-tab">
+            <!-- Form for creating/extending graph -->
+            <form class="form-horizontal" method="post">
+              <div class="form-group">
+                    <label class="control-label col-sm-2" for="concepts">Concepts (semicolon separated) (Optional):</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="concepts" name="concepts" placeholder="Enter concepts, example: food;cancer">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="relations">Relations (semicolon separated) (Optional):</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="relations" name="relations" placeholder="Enter relations, example: food;cancer">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="prompt">Prompt:</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="prompt" name="prompt" placeholder="Enter prompt">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="graph_name">Graph Name:</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="graph_name" name="graph_name" placeholder="Enter name for the graph">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label><input type="checkbox" id="extension" name="extension" value="Extend"> Extend an Existing Graph</label>
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label><input type="checkbox" id="UseLlama" name="UseLlama" value="UseLLama"> Use Llama instead of ChatGPT</label>
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="create_graph">Create/Extend Graph</button>
+                    </div>
+              </div>
+            </form>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'insights' %} show active{% endif %}" id="insights" role="tabpanel" aria-labelledby="insights-tab">
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label for="graph-select-insights">Select a Graph:</label><select class="form-control" id="graph-select-insights" name="selected_graph_insights">
+                            {% for graph_name in graph_names %}
+                                <option value="{{ graph_name }}">{{ graph_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label><input type="checkbox" id="UseLlama2" name="UseLlama2" value="UseLLama2"> Use Llama instead of ChatGPT</label>
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="generate_insights">Generate Insights</button>
+                    </div>
+                </div>
+                <div id="generated-text" class="mt-4">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <h3> Insights: </h3>
+                        <p>{{ insights }}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'merge_graphs' %} show active{% endif %}" id="merge_graphs" role="tabpanel" aria-labelledby="merge_graphs-tab">
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label for="graph-select-insights">Select a Graph:</label><select class="form-control" id="graph-select-merge1" name="selected_graph_merge1">
+                            {% for graph_name in graph_names %}
+                                <option value="{{ graph_name }}">{{ graph_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label for="graph-select-insights">Select a Graph:</label><select class="form-control" id="graph-select-merge2" name="selected_graph_merge2">
+                            {% for graph_name in graph_names %}
+                                <option value="{{ graph_name }}">{{ graph_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="graph_name_merge">New Graph Name:</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="graph_name_merge" name="graph_name_merge" placeholder="Enter name for the graph">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="merge_graphs">Merge Graphs</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'flavonoid' %} show active{% endif %}" id="flavonoid" role="tabpanel" aria-labelledby="flavonoid-tab">
+            <form class="form-horizontal" method="post">
+                <label class="control-label col-sm-2">Generate flavonoid to cancer graph:</label>
+                <div class="form-group">
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="graph_name_flavonoid1" name="graph_name_flavonoid1" placeholder="Enter name for the graph">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="create_flav_to_cancer">Generate</button>
+                    </div>
+                </div>
+            </form>
+            </br></br>
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="graph_name">Enter number of abstracts to scrape:</label>
+
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="num_abstracts" name="num_abstracts" placeholder="Enter number of abstracts to scrape">
+                   </div>
+                </div>
+                <label class="control-label col-sm-2">Enter name for graph:</label>
+                <div class="form-group">
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="graph_name_flavonoid2" name="graph_name_flavonoid2" placeholder="Enter name for the graph">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label><input type="checkbox" id="include_known_relations" name="include_known_relations" value="include_known_relations">Include known relations</label>
+                      </div>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="new_cancer_relations">Scrape abstracts and generate new flavonoid to cancer relations</button>
+                    </div>
+                </div>
+            </form>
+            </br></br>
+            <form class="form-horizontal" method="post">
+                <label class="control-label col-sm-2">Generate food to cancer graph:</label>
+                <div class="form-group">
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="graph_name_flavonoid3" name="graph_name_flavonoid3" placeholder="Enter name for the graph">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="create_food_to_cancer">Generate</button>
+                    </div>
+                </div>
+            </form>
+            </br></br>
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="graph_name">Enter number of abstracts to scrape:</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="num_abstracts2" name="num_abstracts2" placeholder="Enter number of abstracts to scrape">
+                   </div>
+                </div>
+                <label class="control-label col-sm-2">Graph Name:</label>
+                <div class="form-group">
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="graph_name_flavonoid4" name="graph_name_flavonoid4" placeholder="Enter name for the graph">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="new_food_cancer_relations">Scrape abstracts and generate new food to cancer relations</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'visualize' %} show active{% endif %}" id="visualize" role="tabpanel" aria-labelledby="visualize-tab">
+            <div class="col-sm-offset-2 col-sm-10">
+                <a href="https://webvowl-service-z4yql2xsla-ez.a.run.app/" style="font-size: 70px" >Visualize</a>
+            </div>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'scrape_abstracts' %} show active{% endif %}" id="scrape_abstracts" role="tabpanel" aria-labelledby="scrape_abstracts-tab">
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="search_query">Enter Search Query:</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="search_query" name="search_query" placeholder="Enter Search Query">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="num_abstracts3">Enter number of abstracts to scrape:</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="num_abstracts3" name="num_abstracts3" placeholder="Enter number of abstracts to scrape">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="entity_classes">Enter what to find relations between (Comma seperated values) (Optional):</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="entity_classes" name="entity_classes" placeholder="Enter what to find relations between, Example: cancer,food">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="graph_name_scrape">Enter a name for the resulting graph:</label>
+                   <div class="col-sm-10">
+                      <input type="text" class="form-control" id="graph_name_scrape" name="graph_name_scrape" placeholder="Enter name for the graph">
+                   </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-primary" type="submit" name="action" value="extract_from_abstracts">Scrape abstracts and generate new relations</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'eval_results' %} show active{% endif %}" id="eval_results" role="tabpanel" aria-labelledby="eval_results-tab">
+            <div class="container mt-4">
+                <h2>Evaluation Results F1 Scores</h2>
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Examples</th>
+                            <th scope="col">Chat GPT</th>
+                            <th scope="col">Bard</th>
+                            <th scope="col">Llama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Harry Potter Example</th>
+                            <td>0.88</td>
+                            <td>0.60</td>
+                            <td>0.52</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Flavonoid Example</th>
+                            <td>0.94</td>
+                            <td>0.94</td>
+                            <td>0.57</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Climate Change Example</th>
+                            <td>0.91</td>
+                            <td>0.77</td>
+                            <td>0.85</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Average</th>
+                            <td>0.91</td>
+                            <td>0.77</td>
+                            <td>0.65</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="tab-pane fade {% if active_tab == 'error' %} show active{% endif %}" id="error" role="tabpanel" aria-labelledby="error-tab">
+            <div class="col-sm-offset-2 col-sm-10">
+                <h2>Error Message</h2>
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <label class="control-label"> {{ error_message }} </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

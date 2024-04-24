@@ -1,0 +1,6 @@
+[Apigenin]-(is_therapeutic_for)->[Prostate]
+[Apigenin]-(is_therapeutic_for)->[Breast]
+[Apigenin]-(is_therapeutic_for)->[Colorectal]
+[Hesperetin]-(is_preventative_for)->[Prostate]
+[Hesperetin]-(is_preventative_for)->[Bone]
+[Hesperetin]-(is_preventative_for)->[Breast]
