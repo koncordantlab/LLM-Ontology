@@ -2,15 +2,15 @@
 
 ## Project Overview
 
-The Flavonoid Knowledge Graph is a comprehensive system that integrates various data sources to provide a deep understanding of flavonoids and their relationships. This project leverages natural language processing, machine learning, and graph databases to create a powerful knowledge base for researchers, scientists, and enthusiasts. 🔍🧪
+The Flavonoid Knowledge Graph is a system that integrates various data sources to provide a deep understanding of flavonoids and their relationships. This project leverages machine learning and graph databases to create a knowledge base for researchers, scientists, and enthusiasts. 🔍🧪
 
 ## Key Features
 
-1. **Flavonoid Data Extraction**: Automatically extract and curate flavonoid data from scientific literature and online sources. 🔍📚
-2. **Semantic Enrichment**: Enhance the flavonoid data with semantic annotations and relationships using natural language processing techniques. 🌐🤖
+1. **Flavonoid Data Extraction**: Automatically extract and curate flavonoid data. 🔍📚
+2. **Semantic Enrichment**: Enhance the flavonoid data with semantic annotations and relationships. 🌐🤖
 3. **Knowledge Graph Construction**: Build a Neo4j graph database to store the flavonoid data and their interconnections. 🗃️🔗
-4. **Intelligent Querying**: Develop advanced querying capabilities to explore the flavonoid knowledge graph and uncover insights. 🔍💡
-5. **Visualization and Exploration**: Provide intuitive visualizations and interactive interfaces for users to explore the flavonoid knowledge graph. 🖥️🔍
+4. **Intelligent Querying**: Develop querying capabilities to explore the flavonoid knowledge graph and uncover insights. 🔍💡
+5. **Visualization and Exploration**: Provide visualizations and interfaces for users to explore the flavonoid knowledge graph. 🖥️🔍
 
 ## Project Setup Guide 🚀
 
